@@ -37,3 +37,8 @@ When we run the program, it will output all the `perfect` numbers up to the limi
 28 is a perfect number
 496 is a perfect number
 ```
+## Donation 💸
+
+If this project help 💁 you, Can you give me a cup of coffee? ☕
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/halilozel1903)
