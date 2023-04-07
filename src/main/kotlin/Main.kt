@@ -1,7 +1,17 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    for (i in 1..1000) {
+        if (isPerfect(i)) {
+            println("$i is a perfect number")
+        }
+    }
+}
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun isPerfect(number: Int): Boolean {
+    var sum = 0
+    for (i in 1..number / 2) {
+        if (number % i == 0) {
+            sum += i
+        }
+    }
+    return sum == number
 }
