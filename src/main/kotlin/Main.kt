@@ -1,12 +1,12 @@
 fun main() {
     for (i in 1..1000) {
-        if (isPerfect(i)) {
+        if (isPerfectNumber(i)) {
             println("$i is a perfect number")
         }
     }
 }
 
-fun isPerfect(number: Int): Boolean {
+fun isPerfectNumber(number: Int): Boolean {
     var sum = 0
     for (i in 1..number / 2) {
         if (number % i == 0) {
