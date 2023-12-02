@@ -14,11 +14,9 @@ fun isPerfectNumber(number: Int): Boolean {
     return (1..number / 2).filter { number % it == 0 }.sum() == number
 }
 ```
-In this program, we use a for loop to iterate through the numbers `1` to `1000`. For each number, we call the `isPerfect` function to determine if it's a perfect number. If isPerfect returns true, we print a message indicating that the number is a perfect number.
+This code defines two functions: `main()` and `isPerfectNumber()`. The `main()` function is responsible for printing all perfect numbers from 1 to 1000. A perfect number is a positive integer that is equal to the sum of its positive divisors. For example, 6 is a perfect number because 1 + 2 + 3 + 6 = 12.
 
-The `isPerfect` function takes an integer number as input and returns a boolean value indicating whether number is a perfect number or not. To determine this, we use another for loop to iterate through the possible divisors of number. If a divisor is found, we add it to the sum variable. Finally, we return `true` if sum is equal to number, and `false` otherwise.
-
-Note that this program only finds perfect numbers up to `1000`. You can adjust the range in the for loop in main to find perfect numbers in a larger range.
+The `isPerfectNumber()` function takes an integer number as input and returns `true` if number is a perfect number, and `false` otherwise. The function calculates the sum of the divisors of number and checks if it is equal to number.
 
 When we run the program, it will output all the `perfect` numbers up to the limit we set:
 
