@@ -7,21 +7,11 @@ A `perfect` number is a positive integer that is equal to the sum of its proper 
 Here’s an example `Kotlin` program that finds perfect numbers:
 ```kotlin
 fun main() {
-    for (i in 1..1000) {
-        if (isPerfect(i)) {
-            println("$i is a perfect number")
-        }
-    }
+    (1..1000).filter { isPerfectNumber(it) }.forEach { println("$it is a perfect number") }
 }
 
-fun isPerfect(number: Int): Boolean {
-    var sum = 0
-    for (i in 1..number / 2) {
-        if (number % i == 0) {
-            sum += i
-        }
-    }
-    return sum == number
+fun isPerfectNumber(number: Int): Boolean {
+    return (1..number / 2).filter { number % it == 0 }.sum() == number
 }
 ```
 In this program, we use a for loop to iterate through the numbers `1` to `1000`. For each number, we call the `isPerfect` function to determine if it's a perfect number. If isPerfect returns true, we print a message indicating that the number is a perfect number.
