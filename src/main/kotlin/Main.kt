@@ -1,17 +1,7 @@
 fun main() {
-    for (i in 1..1000) {
-        if (isPerfectNumber(i)) {
-            println("$i is a perfect number")
-        }
-    }
+    (1..1000).filter { isPerfectNumber(it) }.forEach { println("$it is a perfect number") }
 }
 
 fun isPerfectNumber(number: Int): Boolean {
-    var sum = 0
-    for (i in 1..number / 2) {
-        if (number % i == 0) {
-            sum += i
-        }
-    }
-    return sum == number
+    return (1..number / 2).filter { number % it == 0 }.sum() == number
 }
