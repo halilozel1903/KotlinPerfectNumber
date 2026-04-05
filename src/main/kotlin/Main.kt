@@ -1,12 +1,17 @@
+import model.NumberLesson
+import strategy.NumberLessonStrategy
+import strategy.PerfectNumberStrategy
+
 fun main() {
     val searchRange = 1..1_000
+    val strategy: NumberLessonStrategy = PerfectNumberStrategy()
 
     printIntro(searchRange)
 
     val perfectNumberLessons = searchRange
         .asSequence()
-        .map(::buildLesson)
-        .filter { it.isPerfect }
+        .map(strategy::build)
+        .filter(strategy::isMatch)
         .toList()
 
     if (perfectNumberLessons.isEmpty()) {
@@ -16,26 +21,6 @@ fun main() {
 
     perfectNumberLessons.forEach(::printLesson)
     printSummary(perfectNumberLessons)
-}
-
-data class NumberLesson(
-    val number: Int,
-    val properDivisors: List<Int>
-) {
-    val divisorSum: Int = properDivisors.sum()
-    val isPerfect: Boolean = number > 1 && divisorSum == number
-}
-
-fun buildLesson(number: Int): NumberLesson =
-    NumberLesson(number, properDivisors(number))
-
-fun properDivisors(number: Int): List<Int> {
-    if (number <= 1) return emptyList()
-
-    return (1..number / 2)
-        .asSequence()
-        .filter { divisor -> number % divisor == 0 }
-        .toList()
 }
 
 fun printIntro(range: IntRange) {
@@ -51,7 +36,7 @@ fun printLesson(lesson: NumberLesson) {
 
     println("Number: ${lesson.number}")
     println("Proper divisors: $divisorsText = ${lesson.divisorSum}")
-    println("Result: ${if (lesson.isPerfect) "Perfect" else "Not perfect"}")
+    println("Result: Perfect")
     println("--------------------------------------------")
 }
 
